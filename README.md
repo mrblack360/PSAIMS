@@ -17,3 +17,5 @@ In case of any concern, dont hesitate to let us know through our contacts listed
 5. [Mvamba, Christian M](mailto:mvamba.christian@gmail.com?subject=PSAIMS-Help)
 6. [Maungila, Charles Lwanga](mailto:clwanga1095@gmail.com?subject=PSAIMS-Help)
 7. [Mawazo, Kennedy Christopher](mailto:christopherkennedy459@gmail.com?subject=PSAIMS-Help)
+
+**Love PSAIMS? Give our repo a start** :star:
