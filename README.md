@@ -2,6 +2,7 @@
 Primary School Academic Information Management System, PSAIMS makes it easy to collect, process, analyse and disseminate Tanzanian based primary school academic information. PSAIMS works with students information and is used by teachers to evaluate and grade students's performances.
 
 ## Documentation
+- [Project Proposal](proposal.md)
 - [Installation Guide](https://github.com/mrblack360/PSAIMS)
 - [PSAIMS Documentation](https://github.com/mrblack360/PSAIMS)
 
