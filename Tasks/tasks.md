@@ -7,7 +7,6 @@
  - Analyze technical feasibility
  - Analyze economic feasibility
  - Analyze organization feasibility
- - Requirement validation
  - [Requirements Specifications](https://github.com/mrblack360/PSAIMS/wiki/Functional-Requirements)
  
 **2. System Design**
