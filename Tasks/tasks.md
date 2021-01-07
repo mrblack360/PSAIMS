@@ -37,5 +37,5 @@
   - Writting [System Documentation]()
   
 ### Task Dependency and Critical Path
-The dependency among project tasks as well a s expected time in which PSAIMS projects will be completed is elaborated in the following *gantt chart*
+The dependency among project tasks as well a s expected time in which PSAIMS projects will be completed is elaborated in the following *gantt chart*.
 ![Gantt Chart](ganttChart.png)
