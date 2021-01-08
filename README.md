@@ -4,12 +4,12 @@ Primary School Academic Information Management System, PSAIMS makes it easy to c
 ## Documentation
 - [Project Proposal](proposal.md)
 - Project Design
-  - [Archtecture Design](https://github.com/mrblack360/PSAIMS)
+  - [Archtecture Design](Designs/Architecture_Design/index.md)
   - [User Interface Design](https://github.com/mrblack360/PSAIMS)
   - [Program Design](https://github.com/mrblack360/PSAIMS)
   - [Data Storage Design](https://github.com/mrblack360/PSAIMS)
 - [Project Tasks](Tasks/tasks.md)
-- [Project Risks](https://github.com/mrblack360/PSAIMS)
+- [Project Risks](Risks/index.md)
 - [Installation Guide](https://github.com/mrblack360/PSAIMS)
 - [PSAIMS Documentation](https://github.com/mrblack360/PSAIMS)
 
