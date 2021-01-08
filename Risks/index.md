@@ -17,8 +17,8 @@
 
 |Risk 4: |Poor Productivity|
 |---|---|
-|Explanation: |Given long project timelines, the sense of urgency to work in earnest is often absent resulting to time lost in early project stages that can never be regained.|
-|Solution: |Short iterations, right people on team, coaching and team development.|
+|Explanation: |Given long project timelines or schedules, the sense of urgency to work in earnest is often absent resulting to time lost in early project stages that can never be regained.|
+|Solution: |Short iterations, right people on the team, coaching and team development.|
 
 |Risk 5: |Procedural risks|
 |---|---|
@@ -28,7 +28,7 @@
 |Risk 6: |Technical risks|
 |---|---|
 |Explanation: |Sometimes software development firms reduce the functionality of the software to compensate for overruns pertaining to high budgets and scheduling. There is always a conflict between achieving maximum functionality of the software and peak performance.|
-|Solution: |In order to compensate for excessive budget and schedule overruns, companies sometimes reduce the functionality of the software.|
+|Solution: |In order to compensate for excessive budget and schedule overruns, organizations sometimes reduce the functionality of the software.|
 
 |Risk 7: |Unavoidable risks|
 |---|---|
