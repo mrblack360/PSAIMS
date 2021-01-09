@@ -1,3 +1,4 @@
+
 ## Architecture Design
 Architecture design is an early stage of system design process that represents the link between specifications and design process. It involves identifying major system components and their communication, determining the relationship that exists between them that will eventually help to make design decisions and documenting the results to be used in detailed design and documentation. Below are some of the significances of software architecture design
 
@@ -12,3 +13,5 @@ Software architecture design is most often represented using simple diagrams sho
 
 ## PSAIMS USE  CASE DIAGRAM
 In our project a use case diagram simply represents the user's interaction with the system showing the relationship between the user and the use cases in which the user is involved, this helps to capture the dynamic behaviour of our system when it is running or operated.
+
+![useCasee](https://user-images.githubusercontent.com/57756117/104093270-8ed99f00-529a-11eb-805a-6a7106311ad2.png)
