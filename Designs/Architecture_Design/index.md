@@ -9,7 +9,7 @@ Architecture may be used as a focus of discussion by system stakeholders, it can
 2. Early design decisions:
 Software architecture shows the earliest design decisions about a system,that will help accomplishing system development parts,deployment and it's maintenance life. It is also by far the earliest point at which design decisions governing the system to be built can be analyzed.
 
-Software architecture design is most often represented using simple diagrams showing entities and their relationships. Use case diagrams are best used to accomplish this task.
+Software architecture design is most often represented using simple diagrams showing entities and their relationships. Use case diagrams, trace diagrams and Sequence diagrams are best used to accomplish this task.
 
 ## PSAIMS USE  CASE DIAGRAM
 In our project a use case diagram simply represents the user's interaction with the system showing the relationship between the user and the use cases in which the user is involved, this helps to capture the dynamic behaviour of our system when it is running or operated.
