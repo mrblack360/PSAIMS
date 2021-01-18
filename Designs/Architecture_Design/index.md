@@ -16,8 +16,10 @@ Software architecture design is most often represented using simple diagrams sho
 
 In our project a use case diagram simply represents the user's interaction with the system showing the relationship between the user and the use cases in which the user is involved, this helps to capture the dynamic behaviour of our system when it is running or operated.
 
+The following is a simple usecase diagram of the staff as one of the users.
 ![Staff](Staff.png)
 
+The following is a simple usecase diagram of the teacher as one of the users.
 ![Teacher](Teacher.png)
 
 <!-- ![useCasee](https://user-images.githubusercontent.com/57756117/104093270-8ed99f00-529a-11eb-805a-6a7106311ad2.png) -->
