@@ -33,7 +33,7 @@
 |Risk 7: |Unavoidable risks|
 |---|---|
 |Explanation: |These include changes in government policy, the obsolescence of software or other risks that cannot be controlled or estimated. As the field of software development becomes more and more complex, the risks associated with it have intensified. It is vital that development firms focus on strategic planning to mitigate such risks.|
-|Solution: |Frequent interaction with the government agencies concerned.|
+|Solution: |Frequent interaction with the government agencies or authorities concerned.|
 
 
 
