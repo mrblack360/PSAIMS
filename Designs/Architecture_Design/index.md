@@ -26,4 +26,5 @@ The following is a simple usecase diagram of the teacher as one of the users.
 
 ## PSAIMS SEQUENCE DIAGRAM
 
+The following is a simple interaction between one of the users of the system(teachers) with the system.
 ![Sequence Diagram](SequencyDiagram.png)
