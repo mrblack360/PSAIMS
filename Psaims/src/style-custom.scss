@@ -1,0 +1,31 @@
+@import "~@angular/material/theming";
+@include mat-core();
+
+$my-custom-primary-color: (
+  50: #313026,
+  100: #313000,
+  contrast: (
+    50: #96cc25,
+    100: #96cc25,
+  ),
+);
+$my-custom-accent-color: (
+  50: #3d3c36,
+  contrast: (
+    50: #3d3c66,
+  ),
+);
+
+$my-custom-success-color: (
+  50: #4bb543,
+  contrast: (
+    50: #ffffff,
+  ),
+);
+
+$my-app-primary: mat-palette($my-custom-primary-color, 50, 100);
+$my-app-accent: mat-palette($my-custom-accent-color, 50);
+$my-app-warn: mat-palette($mat-red);
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+
+@include angular-material-theme($my-app-theme);
