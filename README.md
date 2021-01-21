@@ -6,7 +6,7 @@ Primary School Academic Information Management System, PSAIMS makes it easy to c
 - Project Design
   - [Archtecture Design](Designs/Architecture_Design/index.md)
   - User Interface Design
-  - Program Design
+  - [Program Design](Designs/Program_Design/Program_Design.md)
   - [Data Storage Design](Designs/Database_Design/database_design.md)
 - [Project Tasks](Tasks/tasks.md)
 - [Project Risks](Risks/index.md)
