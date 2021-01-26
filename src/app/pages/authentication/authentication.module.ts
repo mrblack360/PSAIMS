@@ -8,9 +8,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
+import { ForgetPasswordComponent } from './views/forget-password/forget-password.component';
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, ForgetPasswordComponent],
   imports: [
     CommonModule,
     AuthenticationRoutingModule,
@@ -18,6 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    MatSnackBarModule,
   ],
 })
 export class AuthenticationModule {}
