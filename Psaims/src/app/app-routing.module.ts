@@ -20,6 +20,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('src/app/pages/core/core.module').then((m) => m.CoreModule),
   },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('src/app/pages/profile/profile.module').then(
+        (m) => m.ProfileModule
+      ),
+  },
   { path: '**', component: NotFoundComponent },
 ];
 
