@@ -15,6 +15,11 @@ const routes: Routes = [
         (m) => m.AuthenticationModule
       ),
   },
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('src/app/pages/core/core.module').then((m) => m.CoreModule),
+  },
   { path: '**', component: NotFoundComponent },
 ];
 
