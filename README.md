@@ -7,7 +7,7 @@ Primary School Academic Information Management System, PSAIMS makes it easy to c
 
 ## Documentation
 
-- [Project Proposal](proposal.md)
+- [Project Proposal](Proposal.md)
 - Project Design
   - [Archtecture Design](Designs/Architecture_Design/index.md)
   - [User Interface Design](Designs/Interface_Design/interface-design.md)
