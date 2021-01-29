@@ -1,4 +1,6 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Maintainability](https://api.codeclimate.com/v1/badges/dbe97dbdfbd55344c38f/maintainability)](https://codeclimate.com/github/mrblack360/PSAIMS/maintainability)
+
 # PSAIMS
 
 Primary School Academic Information Management System, PSAIMS makes it easy to collect, process, analyse and disseminate Tanzanian based primary school academic information. PSAIMS works with students information and is used by teachers to evaluate and grade students's performances.
