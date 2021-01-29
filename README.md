@@ -13,7 +13,7 @@ Primary School Academic Information Management System, PSAIMS makes it easy to c
   - [Data Storage Design](Designs/Database_Design/database_design.md)
 - [Project Tasks](Tasks/tasks.md)
 - [Project Risks](Risks/index.md)
-- [Installation Guide](##installation-guide)
+- [Installation Guide](#installation-guide)
 - [PSAIMS Documentation](https://github.com/mrblack360/PSAIMS)
 
 
@@ -49,7 +49,7 @@ Install all required dependencies for the app
 npm install
 ```
 
-## Development server
+### Development server
 
 To start development server
 
