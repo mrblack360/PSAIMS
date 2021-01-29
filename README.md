@@ -16,7 +16,7 @@ Primary School Academic Information Management System, PSAIMS makes it easy to c
 - [Project Tasks](Tasks/tasks.md)
 - [Project Risks](Risks/index.md)
 - [Installation Guide](#installation-guide)
-- [PSAIMS Documentation](https://github.com/mrblack360/PSAIMS)
+- [PSAIMS Documentation](Documentation.md)
 
 
 ## About PSAIMS
