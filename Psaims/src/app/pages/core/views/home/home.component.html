@@ -1,1 +1,12 @@
-<p>home works!</p>
+<div class="row left">
+  <button
+    mat-button
+    color="primary"
+    *ngFor="let tab of tabs"
+    [routerLink]="tab.link"
+    routerLinkActive="active"
+  >
+    {{ tab.name }}
+  </button>
+</div>
+<div class="row outlet"><router-outlet></router-outlet></div>
