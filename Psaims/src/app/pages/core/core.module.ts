@@ -19,9 +19,10 @@ import { NgChartjsModule } from 'ng-chartjs';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { StudentsComponent } from './views/students/students.component';
 import { TeachersComponent } from './views/teachers/teachers.component';
+import { ClassesComponent } from './views/classes/classes.component';
 
 @NgModule({
-  declarations: [HomeComponent, DashboardComponent, StudentsComponent, TeachersComponent],
+  declarations: [HomeComponent, DashboardComponent, StudentsComponent, TeachersComponent, ClassesComponent],
   imports: [
     CommonModule,
     CoreRoutingModule,
