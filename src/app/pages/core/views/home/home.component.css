@@ -1,0 +1,25 @@
+.row {
+  float: left;
+  height: 90%;
+}
+.left {
+  width: 14%;
+  background-color: #3d3c36;
+  color: #96cc25;
+}
+.outlet {
+  width: 85%;
+  overflow: hidden scroll;
+}
+.left button {
+  background-color: #3d3c36;
+  color: #96cc25;
+  width: 100%;
+  text-align: left;
+}
+.active {
+  background-color: #232323 !important;
+  border-left: solid 5px;
+  border-left-color: #96cc25;
+  font-weight: bold;
+}
