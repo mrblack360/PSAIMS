@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 // Components
 import { NotFoundComponent } from '../not-found/not-found.component';
+import { AssessmentsComponent } from './views/assessments/assessments.component';
 import { ClassesComponent } from './views/classes/classes.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { HomeComponent } from './views/home/home.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'teachers', component: TeachersComponent },
       { path: 'classes', component: ClassesComponent },
       { path: 'subjects', component: SubjectsComponent },
+      { path: 'assessments', component: AssessmentsComponent },
       { path: '**', component: NotFoundComponent },
     ],
   },
