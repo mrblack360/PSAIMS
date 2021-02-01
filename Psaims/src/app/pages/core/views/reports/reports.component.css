@@ -1,0 +1,45 @@
+.main-contents {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.main-contents mat-card {
+  width: 20%;
+  min-width: 200px;
+}
+.main-contents mat-card div {
+  display: flex;
+  justify-content: space-between;
+  color: black;
+}
+.first {
+  background: linear-gradient(135deg, #05fd05, #7beb7b, #aeeeee);
+  color: black;
+}
+.second {
+  background: linear-gradient(135deg, #053ffd, #7ba8eb, #aed6ee);
+  color: black;
+}
+.third {
+  background: linear-gradient(135deg, #fd05dc, #e77beb, #eeaeee);
+  color: black;
+}
+.fourth {
+  background: linear-gradient(135deg, #fd0558, #eb7b97, #f0c0d6);
+  color: black;
+}
+h3 {
+  padding: 10px;
+  font-size: large;
+}
+mat-card-subtitle {
+  color: black;
+  padding: 2px;
+}
+mat-icon {
+  font-size: xx-large;
+  cursor: default;
+}
+mat-card img {
+  height: 75px;
+}
