@@ -7,6 +7,7 @@ import { AssessmentsComponent } from './views/assessments/assessments.component'
 import { ClassesComponent } from './views/classes/classes.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { HomeComponent } from './views/home/home.component';
+import { ReportsComponent } from './views/reports/reports.component';
 import { StudentsComponent } from './views/students/students.component';
 import { SubjectsComponent } from './views/subjects/subjects.component';
 import { TeachersComponent } from './views/teachers/teachers.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: 'classes', component: ClassesComponent },
       { path: 'subjects', component: SubjectsComponent },
       { path: 'assessments', component: AssessmentsComponent },
+      { path: 'reports', component: ReportsComponent },
       { path: '**', component: NotFoundComponent },
     ],
   },

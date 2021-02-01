@@ -22,9 +22,10 @@ import { TeachersComponent } from './views/teachers/teachers.component';
 import { ClassesComponent } from './views/classes/classes.component';
 import { SubjectsComponent } from './views/subjects/subjects.component';
 import { AssessmentsComponent } from './views/assessments/assessments.component';
+import { ReportsComponent } from './views/reports/reports.component';
 
 @NgModule({
-  declarations: [HomeComponent, DashboardComponent, StudentsComponent, TeachersComponent, ClassesComponent, SubjectsComponent, AssessmentsComponent],
+  declarations: [HomeComponent, DashboardComponent, StudentsComponent, TeachersComponent, ClassesComponent, SubjectsComponent, AssessmentsComponent, ReportsComponent],
   imports: [
     CommonModule,
     CoreRoutingModule,
