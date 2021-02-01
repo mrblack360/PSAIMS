@@ -7,6 +7,7 @@ import { ClassesComponent } from './views/classes/classes.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { HomeComponent } from './views/home/home.component';
 import { StudentsComponent } from './views/students/students.component';
+import { SubjectsComponent } from './views/subjects/subjects.component';
 import { TeachersComponent } from './views/teachers/teachers.component';
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'students', component: StudentsComponent },
       { path: 'teachers', component: TeachersComponent },
       { path: 'classes', component: ClassesComponent },
+      { path: 'subjects', component: SubjectsComponent },
       { path: '**', component: NotFoundComponent },
     ],
   },
