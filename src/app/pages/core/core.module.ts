@@ -21,9 +21,10 @@ import { StudentsComponent } from './views/students/students.component';
 import { TeachersComponent } from './views/teachers/teachers.component';
 import { ClassesComponent } from './views/classes/classes.component';
 import { SubjectsComponent } from './views/subjects/subjects.component';
+import { AssessmentsComponent } from './views/assessments/assessments.component';
 
 @NgModule({
-  declarations: [HomeComponent, DashboardComponent, StudentsComponent, TeachersComponent, ClassesComponent, SubjectsComponent],
+  declarations: [HomeComponent, DashboardComponent, StudentsComponent, TeachersComponent, ClassesComponent, SubjectsComponent, AssessmentsComponent],
   imports: [
     CommonModule,
     CoreRoutingModule,
