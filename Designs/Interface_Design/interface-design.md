@@ -4,10 +4,10 @@ The Primary School Academic Information Management System will need the followin
 
 - An interface for login which is performed by Teachers of subjects, Academic master and the headmaster
 - An interface for registering students which is performed by the teacher of the respective subject
-- An interface for registering teachers which is performed by the headmaster
+- An interface for registering teachers which is performed by the academic master
 - An interface for uploading results of students
 - An interface for registering new subjects or updating information of current subjects
-- An interface for veiwing quick information about a student 
+- An interface for viewing quick information about a student 
 
 
 
