@@ -1,5 +1,9 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-[![Maintainability](https://api.codeclimate.com/v1/badges/dbe97dbdfbd55344c38f/maintainability)](https://codeclimate.com/github/mrblack360/PSAIMS/maintainability)
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](LICENCE)
+[![NPM Version](https://img.shields.io/npm/v/npm.svg?style=flat)](https://npmjs.com)
+[![GitHub contributors](https://img.shields.io/badge/contributors-7-green.svg?style=flat)](https://github.com/mrblack360/PSAIMS/graphs/contributors)
+![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-green)
+![Maintainability](https://img.shields.io/badge/maintainability-B-yellow)
 
 # PSAIMS
 
@@ -18,12 +22,12 @@ Primary School Academic Information Management System, PSAIMS makes it easy to c
 - [Installation Guide](#installation-guide)
 - [PSAIMS Documentation](Documentation.md)
 
-
 ## About PSAIMS
 
 We think PSAIMS will help teachers to report correct student information after a thorough and reliable analysis and evaluation that PSAIMS does.
 
 ## Installation Guide
+
 ### Prerequisites
 
 1. [NodeJs (14 or higher)](https://nodejs.org)
@@ -69,10 +73,14 @@ var databaseConf = {
 };
 
 exports.databaseConf = databaseConf;
-
 ```
 
+<<<<<<< HEAD
 We have provided `node/database/conf-example.js` file as an example, make a copy and rename to `node/database/conf.js` and then ensure to fill in the correct database credentials for you MYSQL database.
+=======
+We have provided `nodejs/database/conf-example.js` file as an example, make a copy and rename to `nodejs/database/conf.js` and then ensure to fill in the correct database credentials for you MYSQL database.
+
+> > > > > > > a438b096c19b816db94559d5944e674d974dabc1
 
 ### Build
 
