@@ -1,0 +1,1 @@
+export const user = {username: 'admin', role: 'admin'};
