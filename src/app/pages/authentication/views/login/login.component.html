@@ -5,11 +5,22 @@
   <form class="form">
     <mat-form-field>
       <mat-label>Username</mat-label>
-      <input matInput placeholder="Username" />
+      <input
+        matInput
+        placeholder="Username"
+        [(ngModel)]="username"
+        [ngModelOptions]="{ standalone: true }"
+      />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Password</mat-label>
-      <input matInput placeholder="Password" type="password" />
+      <input
+        matInput
+        placeholder="Password"
+        type="password"
+        [(ngModel)]="password"
+        [ngModelOptions]="{ standalone: true }"
+      />
     </mat-form-field>
   </form>
   <button mat-raised-button color="primary" (click)="login()">Login</button>
