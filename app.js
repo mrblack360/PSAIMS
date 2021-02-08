@@ -162,7 +162,7 @@ app.delete("/student/:id", (req, res) => {
     dbConnection.query(
       "DELETE FROM student WHERE id=" + req.params.id,
       (err, results, fields) => {
-        if (err) res.status(417).send({ message: "Failed to remove student" });
+        if (err) res.status(417).send({ message: "Failed to delete student" });
         if (results) res.status(200).send({ message: "Successfully Deleted" });
       }
     );
