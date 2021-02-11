@@ -1,0 +1,85 @@
+<mat-card class="mat-elevation-z8">
+  <mat-card-title> {{ data.title }} </mat-card-title>
+  <mat-card-content>
+    <form>
+      <mat-form-field *ngIf="data.body">
+        <mat-label>Roll No</mat-label>
+        <input
+          matInput
+          placeholder="99"
+          [(ngModel)]="student.id"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="true"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Fist Name</mat-label>
+        <input
+          matInput
+          placeholder="John"
+          [(ngModel)]="student.firstName"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Middle Name</mat-label>
+        <input
+          matInput
+          placeholder="Maswi"
+          [(ngModel)]="student.middleName"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input
+          matInput
+          placeholder="Doe"
+          [(ngModel)]="student.lastName"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Gender</mat-label>
+        <input
+          matInput
+          placeholder="Male"
+          [(ngModel)]="student.gender"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Class</mat-label>
+        <input
+          matInput
+          placeholder="Class 7"
+          [(ngModel)]="student.class"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="warn" (click)="onCancelClick()">
+      {{ data.cancel }}
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="false"
+      [mat-dialog-close]="student"
+    >
+      {{ data.success }}
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -23,9 +23,23 @@ import { ClassesComponent } from './views/classes/classes.component';
 import { SubjectsComponent } from './views/subjects/subjects.component';
 import { AssessmentsComponent } from './views/assessments/assessments.component';
 import { ReportsComponent } from './views/reports/reports.component';
+import { ViewDialogComponent } from './views/view-dialog/view-dialog.component';
+import { MatSortModule } from '@angular/material/sort';
+import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-  declarations: [HomeComponent, DashboardComponent, StudentsComponent, TeachersComponent, ClassesComponent, SubjectsComponent, AssessmentsComponent, ReportsComponent],
+  declarations: [
+    HomeComponent,
+    DashboardComponent,
+    StudentsComponent,
+    TeachersComponent,
+    ClassesComponent,
+    SubjectsComponent,
+    AssessmentsComponent,
+    ReportsComponent,
+    ViewDialogComponent,
+  ],
   imports: [
     CommonModule,
     CoreRoutingModule,
@@ -38,6 +52,9 @@ import { ReportsComponent } from './views/reports/reports.component';
     MatIconModule,
     MatMenuModule,
     MatSnackBarModule,
+    MatSortModule,
+    FormsModule,
+    MatDialogModule,
   ],
 })
 export class CoreModule {}
