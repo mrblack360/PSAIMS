@@ -63,7 +63,7 @@ To start development server
 
 Navigate to [http://localhost:4200](http://localhost:4200).
 
-This command will require `nodejs/database/conf.js` file available in the root of your source code, usually this file has this format
+This command will require a running MYSQL database server and the `nodejs/database/conf.js` file available in the root of your source code, usually this file has this format
 
 ```js
 var databaseConf = {
@@ -75,12 +75,7 @@ var databaseConf = {
 exports.databaseConf = databaseConf;
 ```
 
-<<<<<<< HEAD
-We have provided `node/database/conf-example.js` file as an example, make a copy and rename to `node/database/conf.js` and then ensure to fill in the correct database credentials for you MYSQL database.
-=======
 We have provided `nodejs/database/conf-example.js` file as an example, make a copy and rename to `nodejs/database/conf.js` and then ensure to fill in the correct database credentials for you MYSQL database.
-
-> > > > > > > a438b096c19b816db94559d5944e674d974dabc1
 
 ### Build
 
