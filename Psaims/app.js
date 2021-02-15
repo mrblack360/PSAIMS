@@ -182,7 +182,7 @@ app.delete("/student/:id", (req, res) => {
 app.get("/teachers", (req, res) => {
   try {
     dbConnection.query(
-      "SELECT * FROM teacher, subject, class WHERE teacher.subject=subject.id AND subject.class=class.id",
+      "SELECT userName, firstName, middleName, lastName, avatar, gender, subject, subject.id, subject.name, class, class.id, class.name as className, year FROM teacher, subject, class WHERE teacher.subject=subject.id AND subject.class=class.id",
       (err, results, fields) => {
         if (err) res.status(502).send({ message: "Service Unavailable" });
         if (results) res.json(results);
