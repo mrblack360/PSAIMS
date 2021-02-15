@@ -1,0 +1,14 @@
+.top-tools {
+  display: flex;
+  padding: 3px;
+  justify-content: space-between;
+}
+.top-tools button {
+  margin: auto;
+}
+table {
+  width: 100%;
+}
+.mat-column-action {
+  width: 3px !important;
+}

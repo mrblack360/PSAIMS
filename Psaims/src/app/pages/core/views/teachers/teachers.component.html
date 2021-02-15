@@ -1,0 +1,72 @@
+<div class="mat-elevation-z8">
+  <div class="top-tools">
+    <div class="left-tools">
+      <form class="example-form">
+        <mat-form-field floatLabel="never">
+          <button mat-icon-button matPrefix style="font-size: x-large">
+            <mat-icon matPrefix>search</mat-icon>
+          </button>
+          <input matInput type="search" placeholder="Search for Teacher" />
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="top-tools">
+      <mat-paginator
+        [pageSizeOptions]="[9, 18, 27]"
+        showFirstLastButtons
+      ></mat-paginator>
+      <button mat-flat-button color="primary" (click)="addTeacher()">
+        Add Teacher
+      </button>
+    </div>
+  </div>
+  <table mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>Staff No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef>Class</th>
+      <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef>Subject</th>
+      <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element; let index = index">
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon aria-hidden="false">more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="viewTeacher(index)">
+            <mat-icon aria-hidden="false">visibility</mat-icon> View Teacher
+          </button>
+          <button mat-menu-item (click)="editTeacher(index)">
+            <mat-icon aria-hidden="false">edit</mat-icon>Edit Teacher Details
+          </button>
+          <button mat-menu-item (click)="deleteTeacher(index)">
+            <mat-icon aria-hidden="false">delete</mat-icon>Delete Teacher
+          </button>
+        </mat-menu>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

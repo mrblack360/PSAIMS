@@ -1,0 +1,30 @@
+<div class="contents">
+  <div class="user-icon">
+    <img src="assets/account_circle-black.svg" alt="Account icon" />
+  </div>
+  <form class="form">
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input
+        matInput
+        placeholder="Username"
+        [(ngModel)]="username"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        placeholder="Password"
+        type="password"
+        [(ngModel)]="password"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+  </form>
+  <button mat-raised-button color="primary" (click)="login()">Login</button>
+  <div class="forget-password">
+    <a routerLink="forget">Forget Password?</a>
+  </div>
+</div>
