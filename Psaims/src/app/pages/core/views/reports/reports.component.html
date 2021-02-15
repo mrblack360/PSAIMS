@@ -1,0 +1,68 @@
+<div>
+  <h3>Assessment Reports</h3>
+  <div class="main-contents">
+    <mat-card
+      *ngFor="let report of reports[0]; let index = index"
+      [class]="report.style"
+      (click)="viewReport(1, index)"
+    >
+      <div>
+        <img [src]="report.icon" />
+        <div>
+          <!-- <button mat-button> -->
+          <mat-icon aria-hidden="false" [matMenuTriggerFor]="menu"
+            >more_vert</mat-icon
+          >
+          <!-- </button> -->
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="viewReport(0, index)">
+              <mat-icon aria-hidden="false">visibility</mat-icon>View Report
+            </button>
+            <button mat-menu-item (click)="printReport(0, index)">
+              <mat-icon aria-hidden="false">local_printshop</mat-icon>Print
+              Report
+            </button>
+            <button mat-menu-item (click)="exportReport(0, index)">
+              <mat-icon aria-hidden="false">picture_as_pdf</mat-icon>Export
+              Report Report
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+      <mat-card-subtitle>{{ report.name }}</mat-card-subtitle>
+    </mat-card>
+  </div>
+  <h3>Periodic Time Reports</h3>
+  <div class="main-contents">
+    <mat-card
+      *ngFor="let report of reports[1]; let index = index"
+      [class]="report.style"
+      (click)="viewReport(1, index)"
+    >
+      <div>
+        <img [src]="report.icon" />
+        <div>
+          <!-- <button mat-button> -->
+          <mat-icon aria-hidden="false" [matMenuTriggerFor]="menu"
+            >more_vert</mat-icon
+          >
+          <!-- </button> -->
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="viewReport(1, index)">
+              <mat-icon aria-hidden="false">visibility</mat-icon>View Report
+            </button>
+            <button mat-menu-item (click)="printReport(1, index)">
+              <mat-icon aria-hidden="false">local_printshop</mat-icon>Print
+              Report
+            </button>
+            <button mat-menu-item (click)="exportReport(1, index)">
+              <mat-icon aria-hidden="false">picture_as_pdf</mat-icon>Export
+              Report Report
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+      <mat-card-subtitle>{{ report.name }}</mat-card-subtitle>
+    </mat-card>
+  </div>
+</div>

@@ -77,7 +77,6 @@ exports.databaseConf = databaseConf;
 
 We have provided `nodejs/database/conf-example.js` file as an example, make a copy and rename to `nodejs/database/conf.js` and then ensure to fill in the correct database credentials for you MYSQL database.
 
-
 ### Build
 
 To build the project run
