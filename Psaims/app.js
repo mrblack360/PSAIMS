@@ -27,6 +27,9 @@ dbConnection.connect();
 
 //Routes
 // Login
+app.get("/", (req, res) => {
+  res.json({ message: "PSAIMS is running" });
+});
 app.get("/login", (req, res) => {
   res.json({ message: "Welcomee" });
 });
@@ -85,10 +88,13 @@ app.get("/logout", (req, res) => {
 // Students
 app.get("/students", (req, res) => {
   try {
-    dbConnection.query("SELECT * FROM student", (err, results, fields) => {
-      if (err) res.status(502).send({ message: "Service Unavailable" });
-      if (results) res.json(results);
-    });
+    dbConnection.query(
+      "SELECT * FROM student, class WHERE student.class=class.id",
+      (err, results, fields) => {
+        if (err) res.status(502).send({ message: "Service Unavailable" });
+        if (results) res.json(results);
+      }
+    );
   } catch (err) {
     console.log(err);
   }
