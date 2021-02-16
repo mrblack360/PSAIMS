@@ -27,6 +27,7 @@ import { ViewDialogComponent } from './views/view-dialog/view-dialog.component';
 import { MatSortModule } from '@angular/material/sort';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { TeacherViewDialogComponent } from './views/teacher-view-dialog/teacher-view-dialog.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     AssessmentsComponent,
     ReportsComponent,
     ViewDialogComponent,
+    TeacherViewDialogComponent,
   ],
   imports: [
     CommonModule,
