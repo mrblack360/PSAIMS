@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Title } from '@angular/platform-browser';
 import { TeacherService } from 'src/app/shared/services/teacher/teacher.service';
 import { user } from '../../../../shared/global-variable';
 import { TeacherViewDialogComponent } from '../teacher-view-dialog/teacher-view-dialog.component';
@@ -32,10 +33,12 @@ export class TeachersComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
 
   constructor(
+    public title: Title,
     private _snackbar: MatSnackBar,
     public teacherService: TeacherService,
     public dialog: MatDialog
   ) {
+    this.title.setTitle('PSAIMS - Teachers');
     this.teacherService.getTeachers().subscribe(
       (data) => {
         this.teachers = data;
