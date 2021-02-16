@@ -32,29 +32,63 @@ app.use(
 
 app.use(cors());
 
-//Routes
 //authentication controllers
 let authController = require("./controller/auth");
 //student controllers
 let studentController = require("./controller/student");
-
+// class controller
+let classController = require("./controller/class-controller");
+//Routes
 //login route
-// Login
+// Default Landing page
 app.get("/", (req, res) => {
   res.json({ message: "PSAIMS is running" });
 });
-app.get("/login", (req, res) => {
-  res.json({ message: "Welcome" });
-});
-
-//default landing page
-app.get("/", (req, res) => {
-  res.json({ message: "Signin or Login" });
-});
 
 //authentication api/routes
-app.post("/api/login", authController.login);
-app.get("/api/logout", authController.logout);
+app.post("/login", authController.login);
+app.get("/logout", authController.logout);
+
+// Dashboard APIs
+app.get("/dashboards/students", (req, res) => {
+  try {
+    dbConnection.query(
+      "SELECT COUNT(id) as enrolledStudents FROM student",
+      (err, results, fields) => {
+        if (err) res.status(502).send({ message: "Failed to load data" });
+        if (results) res.json(results);
+      }
+    );
+  } catch (err) {
+    console.log(err);
+  }
+});
+app.get("/dashboards/teachers", (req, res) => {
+  try {
+    dbConnection.query(
+      "SELECT COUNT(username) as employedTeachers FROM teacher",
+      (err, results, fields) => {
+        if (err) res.status(502).send({ message: "Failed to load data" });
+        if (results) res.json(results);
+      }
+    );
+  } catch (err) {
+    console.log(err);
+  }
+});
+app.get("/dashboards/teachers", (req, res) => {
+  try {
+    dbConnection.query(
+      "SELECT COUNT(username) as employedTeachers FROM teacher",
+      (err, results, fields) => {
+        if (err) res.status(502).send({ message: "Failed to load data" });
+        if (results) res.json(results);
+      }
+    );
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 // Students api/routes
 app.post("/student", studentController.addStudent);
@@ -193,6 +227,14 @@ app.delete("/teacher/:username", (req, res) => {
     console.log(err);
   }
 });
+
+// Class Routes
+app.get("/classes", classController.getAllClasses);
+app.get("/class/:id", classController.getOneClass);
+app.post("/class", classController.addClass);
+app.put("/class/:id", classController.updateClass);
+app.delete("class/:id");
+
 app.listen(3000, () => {
   console.log("PSAIMS Running...");
 });
