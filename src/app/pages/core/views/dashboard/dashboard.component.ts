@@ -53,7 +53,7 @@ export class DashboardComponent implements OnInit {
       },
     });
     this.pie = new Chart('teachers_performance', {
-      type: 'pie',
+      type: 'doughnut',
       options: {
         responsive: true,
         title: { display: true, text: 'Teachers Perfomance' },
@@ -69,18 +69,18 @@ export class DashboardComponent implements OnInit {
         labels: ['Shangwe', 'Chris', 'Marlon', 'Mawazo', 'Lwanga'],
       },
     });
-    this.pie = new Chart('subjects_performance', {
+    this.pie = new Chart('teacher_per_subject', {
       type: 'pie',
       options: {
         responsive: true,
-        title: { display: true, text: 'Subjects Perfomance' },
+        title: { display: true, text: "Teachers' distribution per subject" },
       },
       data: {
         datasets: [
           {
             data: [45, 10, 5, 25, 15],
             backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue'],
-            label: 'Students Performance',
+            label: "Teachers' distribution",
           },
         ],
         labels: ['Chemistry', 'Physics', 'Mathematics', 'Azim', 'Angelo'],
