@@ -23,6 +23,7 @@ export class StudentsComponent implements OnInit, AfterViewInit {
     'lastname',
     'gender',
     'class',
+    'year',
     'action',
   ];
   dataSource = new MatTableDataSource<any>(this.students);

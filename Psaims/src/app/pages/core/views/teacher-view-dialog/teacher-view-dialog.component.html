@@ -2,23 +2,12 @@
   <mat-card-title> {{ data.title }} </mat-card-title>
   <mat-card-content>
     <form>
-      <mat-form-field *ngIf="data.body">
-        <mat-label>Roll No</mat-label>
-        <input
-          matInput
-          placeholder="99"
-          [(ngModel)]="student.id"
-          [ngModelOptions]="{ standalone: true }"
-          [disabled]="true"
-        />
-      </mat-form-field>
-
       <mat-form-field>
         <mat-label>Fist Name</mat-label>
         <input
           matInput
           placeholder="John"
-          [(ngModel)]="student.firstName"
+          [(ngModel)]="teacher.firstName"
           [ngModelOptions]="{ standalone: true }"
           [disabled]="!data.editable"
         />
@@ -29,7 +18,7 @@
         <input
           matInput
           placeholder="Maswi"
-          [(ngModel)]="student.middleName"
+          [(ngModel)]="teacher.middleName"
           [ngModelOptions]="{ standalone: true }"
           [disabled]="!data.editable"
         />
@@ -40,7 +29,7 @@
         <input
           matInput
           placeholder="Doe"
-          [(ngModel)]="student.lastName"
+          [(ngModel)]="teacher.lastName"
           [ngModelOptions]="{ standalone: true }"
           [disabled]="!data.editable"
         />
@@ -51,7 +40,18 @@
         <input
           matInput
           placeholder="Male"
-          [(ngModel)]="student.gender"
+          [(ngModel)]="teacher.gender"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Subject</mat-label>
+        <input
+          matInput
+          placeholder="Mathematics"
+          [(ngModel)]="teacher.subject"
           [ngModelOptions]="{ standalone: true }"
           [disabled]="!data.editable"
         />
@@ -62,17 +62,7 @@
         <input
           matInput
           placeholder="VII"
-          [(ngModel)]="student.name"
-          [ngModelOptions]="{ standalone: true }"
-          [disabled]="!data.editable"
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Year</mat-label>
-        <input
-          matInput
-          placeholder="2021"
-          [(ngModel)]="student.year"
+          [(ngModel)]="teacher.class"
           [ngModelOptions]="{ standalone: true }"
           [disabled]="!data.editable"
         />
@@ -87,7 +77,7 @@
       mat-raised-button
       color="primary"
       [disabled]="false"
-      [mat-dialog-close]="student"
+      [mat-dialog-close]="teacher"
     >
       {{ data.success }}
     </button>
