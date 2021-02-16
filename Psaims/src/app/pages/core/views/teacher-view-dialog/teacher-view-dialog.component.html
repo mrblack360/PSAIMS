@@ -1,0 +1,85 @@
+<mat-card>
+  <mat-card-title> {{ data.title }} </mat-card-title>
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <mat-label>Fist Name</mat-label>
+        <input
+          matInput
+          placeholder="John"
+          [(ngModel)]="teacher.firstName"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Middle Name</mat-label>
+        <input
+          matInput
+          placeholder="Maswi"
+          [(ngModel)]="teacher.middleName"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input
+          matInput
+          placeholder="Doe"
+          [(ngModel)]="teacher.lastName"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Gender</mat-label>
+        <input
+          matInput
+          placeholder="Male"
+          [(ngModel)]="teacher.gender"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Subject</mat-label>
+        <input
+          matInput
+          placeholder="Mathematics"
+          [(ngModel)]="teacher.subject"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Class</mat-label>
+        <input
+          matInput
+          placeholder="VII"
+          [(ngModel)]="teacher.class"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="warn" (click)="onCancelClick()">
+      {{ data.cancel }}
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="false"
+      [mat-dialog-close]="teacher"
+    >
+      {{ data.success }}
+    </button>
+  </mat-card-actions>
+</mat-card>
