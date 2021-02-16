@@ -1,4 +1,4 @@
-<mat-card class="mat-elevation-z8">
+<mat-card>
   <mat-card-title> {{ data.title }} </mat-card-title>
   <mat-card-content>
     <form>
@@ -61,8 +61,18 @@
         <mat-label>Class</mat-label>
         <input
           matInput
-          placeholder="Class 7"
-          [(ngModel)]="student.class"
+          placeholder="VII"
+          [(ngModel)]="student.name"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Year</mat-label>
+        <input
+          matInput
+          placeholder="2021"
+          [(ngModel)]="student.year"
           [ngModelOptions]="{ standalone: true }"
           [disabled]="!data.editable"
         />

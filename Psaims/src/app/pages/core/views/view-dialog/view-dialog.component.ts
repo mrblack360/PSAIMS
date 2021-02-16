@@ -14,6 +14,8 @@ export class ViewDialogComponent implements OnInit {
     lastName?: string;
     gender?: string;
     class?: number;
+    name?: string;
+    year?: number;
   } = {};
   constructor(
     public dialogRef: MatDialogRef<ViewDialogComponent>,
