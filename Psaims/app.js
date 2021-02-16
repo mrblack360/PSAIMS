@@ -283,20 +283,27 @@ app.put("/teacher/:username", (req, res) => {
 });
 app.delete("/teacher/:username", (req, res) => {
   try {
+    let jointErr = 0;
     dbConnection.query(
       "DELETE FROM teacher WHERE username='" + req.params.username + "'",
       (err, results, fields) => {
-        if (err) res.status(417).send({ message: "Failed to delete teacher" });
-        if (results) res.status(200).send({ message: "Successfully teacher" });
+        if (err) jointErr++;
       }
     );
     dbConnection.query(
       "DELETE FROM users WHERE username='" + req.params.username + "'",
       (err, results, fields) => {
-        if (err) res.status(417).send({ message: "Failed to delete user" });
-        if (results) res.status(200).send({ message: "Successfully user" });
+        if (err) jointErr++;
       }
     );
+    jointErr === 0
+      ? res.status(200).send({
+          message: "Successfully deleted teacher " + req.params.username,
+        })
+      : res.status(417).send({
+          message:
+            "Failed to delete teacher " + req.params.username + " successfully",
+        });
   } catch (err) {
     console.log(err);
   }
