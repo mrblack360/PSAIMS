@@ -2,6 +2,9 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
+import { Title } from '@angular/platform-browser';
+import { MatSort } from '@angular/material/sort';
+import { ClassesService } from 'src/app/shared/services/classes/classes.service';
 
 @Component({
   selector: 'app-classes',
@@ -9,18 +12,56 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./classes.component.css'],
 })
 export class ClassesComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'action'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  classes: any = [];
+  displayedColumns: string[] = [
+    'sno',
+    'name',
+    'teacher',
+    'studentsNo',
+    'action',
+  ];
+  dataSource = new MatTableDataSource<any>(ELEMENT_DATA);
 
+  @ViewChild(MatSort, { static: false }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
 
-  constructor(private _snackbar: MatSnackBar) {}
+  constructor(
+    public title: Title,
+    private _snackbar: MatSnackBar,
+    public classesService: ClassesService
+  ) {
+    this.title.setTitle('PSAIMS - Classes');
+    this.classesService.getClasses().subscribe(
+      (data) => {
+        this.classes = data;
+        this.dataSource = new MatTableDataSource<any>(this.classes);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      },
+      (err) => {
+        this.classes = [];
+      }
+    );
+  }
   ngAfterViewInit() {
+    this.dataSource = new MatTableDataSource<any>(this.classes);
+    this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
+    this.classesService.getClasses().subscribe(
+      (data) => {
+        this.classes = data;
+        this.dataSource = new MatTableDataSource<any>(this.classes);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      },
+      (err) => {
+        this.classes = [];
+      }
+    );
   }
   addClass() {
     this._snackbar.open('Can not add Class at a moment', 'OK', {
