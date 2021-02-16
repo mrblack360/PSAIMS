@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Chart } from 'chart.js';
+import { DashboardsService } from 'src/app/shared/services/dashboards/dashboards.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,10 +9,27 @@ import { Chart } from 'chart.js';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
+  // Data
+  enrolledStudents = 0;
+  employedTeachers = 0;
+
+  // Charts
   chart: any;
   doughnut: any;
   pie: any;
-  constructor() {}
+
+  constructor(
+    public dashboardsService: DashboardsService,
+    public title: Title
+  ) {
+    this.title.setTitle('PSAIMS - Dashboards');
+    this.dashboardsService.getAllEnrolledStudents().subscribe((data) => {
+      this.enrolledStudents = data[0].enrolledStudents;
+    });
+    this.dashboardsService.getAllEmployedTeachers().subscribe((data) => {
+      this.employedTeachers = data[0].employedTeachers;
+    });
+  }
 
   ngOnInit(): void {
     this.chart = new Chart('students_per_class', {

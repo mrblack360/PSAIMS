@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { StudentService } from 'src/app/shared/services/student/student.service';
 import { user } from '../../../../shared/global-variable';
 import { ViewDialogComponent } from '../view-dialog/view-dialog.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-students',
@@ -32,10 +33,12 @@ export class StudentsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
 
   constructor(
+    public title: Title,
     private _snackbar: MatSnackBar,
     public studentsService: StudentService,
     public dialog: MatDialog
   ) {
+    this.title.setTitle('PSAIMS - Students');
     this.studentsService.getStudents().subscribe(
       (data) => {
         this.students = data;
@@ -95,7 +98,7 @@ export class StudentsComponent implements OnInit, AfterViewInit {
           (data) => {
             this.ngOnInit();
             this._snackbar.open(
-              'Enrolling ' + result.firstName + ' to class ' + result.class,
+              'Enrolling ' + result.firstName + ' to class ' + result.name,
               'OK',
               { horizontalPosition: 'right', duration: 2500 }
             );
