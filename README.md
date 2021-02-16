@@ -63,19 +63,21 @@ To start development server
 
 Navigate to [http://localhost:4200](http://localhost:4200).
 
-This command will require a running MYSQL database server and the `nodejs/database/conf.js` file available in the root of your source code, usually this file has this format
+This command will require a running MYSQL database server and the correct credentials required for the database connection in a file ```config/mysql.js```, usually this file has the format below. Make sure to specify the correct **host**, **user**, **password** and **database**.
 
 ```js
-var databaseConf = {
+...
+var dbConnection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-};
+  database: "psaims",
+});
 
-exports.databaseConf = databaseConf;
+...
 ```
 
-We have provided `nodejs/database/conf-example.js` file as an example, make a copy and rename to `nodejs/database/conf.js` and then ensure to fill in the correct database credentials for you MYSQL database.
+All the remaining lines are editable, but don't be tempted to do so.
 
 ### Build
 
