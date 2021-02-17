@@ -29,7 +29,7 @@ The main objective of the primary school academic information management system 
 
 ### SPECIFIC OBJECTIVES
 Below are the specific objectives for the primary school academic information management system. 
-1. To develope a system that will register students and teachers.
+1. To develop a system that will register students and teachers.
 2. To create a database that will store the results of students in homeworks, in-class exercises and tests.
 3. To create a web application that the teachers will use to store and view students progress and generate reports for each student.
 
