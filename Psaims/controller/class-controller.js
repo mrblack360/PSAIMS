@@ -1,4 +1,5 @@
 var dbConnection = require("../config/mysql");
+var moment = require("moment");
 
 //get a Class
 exports.getOneClass = (req, res) => {
@@ -23,9 +24,9 @@ exports.getOneClass = (req, res) => {
 exports.getAllClasses = (req, res) => {
   try {
     dbConnection.query(
-      "SELECT class.id, name, year, student.id as student, class, COUNT(DISTINCT student.id) as studentsCount  FROM class, student WHERE class.id=student.class GROUP BY class.id",
+      "SELECT id, name, teacher, year, students, class, studentsCount, userName, firstName, middleName, lastName FROM (SELECT class.id, name, teacher, year, student.id as students, class, COUNT(DISTINCT student.id) as studentsCount FROM class, student WHERE class.id=student.class GROUP BY class.id) AS class_students LEFT JOIN teacher ON class_students.teacher=teacher.userName ORDER BY name",
       (err, results, fields) => {
-        if (err) res.status(502).send({ message: "Service Unavailable" });
+        if (err) res.status(502).send({ message: "Service Unavailable" + err });
         if (results) res.json(results);
       }
     );
@@ -36,13 +37,14 @@ exports.getAllClasses = (req, res) => {
 
 //add Class
 exports.addClass = (req, res) => {
-  const { name, year } = req.body;
+  const { name, teacher } = req.body;
   try {
     dbConnection.query(
-      "INSERT INTO class (name, year) VALUES (?, ?)",
-      [name, year],
+      "INSERT INTO class (name, teacher,  year) VALUES (?, ?, ?)",
+      [name, teacher, moment().year()],
       (err, results, fields) => {
         if (err) res.status(417).send({ message: "Failed to add Class" });
+
         if (results)
           res.status(200).send({ message: "Seccessfully added a Class" });
       }
@@ -70,15 +72,16 @@ exports.deleteClass = (req, res) => {
 };
 
 exports.updateClass = (req, res) => {
-  const { firstName, middleName, lastName, gender } = req.body;
+  const { name, teacher, year } = req.body;
   const { id } = req.params;
 
   try {
     dbConnection.query(
-      "UPDATE Class SET firstName=?, middleName=?, lastName=?, gender=?, class=? WHERE id=?",
-      [firstName, middleName, lastName, gender, req.body.class, id],
+      "UPDATE class SET name=?, teacher=?, year=? WHERE id=" + id,
+      [name, teacher, year],
       (err, results, fields) => {
-        if (err) res.status(417).send({ message: "Failed to edit Class" });
+        if (err)
+          res.status(417).send({ message: "Failed to edit Class" + err });
         if (results)
           res.status(200).send({ message: "Seccessfully edited a Class" });
       }
