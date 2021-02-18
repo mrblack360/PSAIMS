@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Title } from '@angular/platform-browser';
 import { MatSort } from '@angular/material/sort';
 import { ClassesService } from 'src/app/shared/services/classes/classes.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ClassesDialogComponent } from '../classes-dialog/classes-dialog.component';
 
 @Component({
   selector: 'app-classes',
@@ -20,7 +22,7 @@ export class ClassesComponent implements OnInit, AfterViewInit {
     'studentsNo',
     'action',
   ];
-  dataSource = new MatTableDataSource<any>(ELEMENT_DATA);
+  dataSource = new MatTableDataSource<any>(this.classes);
 
   @ViewChild(MatSort, { static: false }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
@@ -28,7 +30,8 @@ export class ClassesComponent implements OnInit, AfterViewInit {
   constructor(
     public title: Title,
     private _snackbar: MatSnackBar,
-    public classesService: ClassesService
+    public classesService: ClassesService,
+    public dialog: MatDialog
   ) {
     this.title.setTitle('PSAIMS - Classes');
     this.classesService.getClasses().subscribe(
@@ -64,56 +67,120 @@ export class ClassesComponent implements OnInit, AfterViewInit {
     );
   }
   addClass() {
-    this._snackbar.open('Can not add Class at a moment', 'OK', {
-      duration: 3000,
-      horizontalPosition: 'right',
+    const dialogRef = this.dialog.open(ClassesDialogComponent, {
+      width: '70%',
+      disableClose: true,
+      data: {
+        title: 'Add Class',
+        body: '',
+        editable: true,
+        success: 'ADD',
+        cancel: 'CANCEL',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result == 'cancel')
+        this._snackbar.open('Discarded...', 'OK', {
+          horizontalPosition: 'right',
+          duration: 2500,
+        });
+      else {
+        this.classesService.addClass(result).subscribe(
+          (data) => {
+            this.ngOnInit();
+            this._snackbar.open('Creating class' + result.name, 'OK', {
+              horizontalPosition: 'right',
+              duration: 2500,
+              panelClass: ['mat-accent', 'mat-warn'],
+            });
+          },
+          (err) => {
+            this._snackbar.open('Creating class failled', 'OK', {
+              horizontalPosition: 'right',
+              duration: 2500,
+            });
+            console.log(err);
+          }
+        );
+      }
     });
   }
   viewClass(index: number) {
-    this._snackbar.open(
-      'Can not view ' + ELEMENT_DATA[index].name + ' at a moment',
-      'OK',
-      {
-        duration: 3000,
-        horizontalPosition: 'right',
+    const dialogRef = this.dialog.open(ClassesDialogComponent, {
+      width: '70%',
+      disableClose: true,
+      data: {
+        title: 'View Class',
+        body: this.classes[index],
+        editable: false,
+        success: 'BACK',
+        cancel: 'CANCEL',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result == 'cancel')
+        this._snackbar.open('Aborting view', 'OK', {
+          horizontalPosition: 'right',
+          duration: 2500,
+        });
+      else {
+        this._snackbar.open('Viewed class' + result.name, 'OK', {
+          horizontalPosition: 'right',
+          duration: 2500,
+        });
       }
-    );
+    });
   }
   editClass(index: number) {
-    this._snackbar.open(
-      'Can not edit ' + ELEMENT_DATA[index].name + ' at a moment',
-      'OK',
-      {
-        duration: 3000,
-        horizontalPosition: 'right',
-      }
-    );
-  }
-  deleteClass(index: number) {
-    this._snackbar.open(
-      'Can not delete ' + ELEMENT_DATA[index].name + ' at a moment',
-      'OK',
-      {
-        duration: 3000,
-        horizontalPosition: 'right',
-      }
-    );
-  }
-}
+    const dialogRef = this.dialog.open(ClassesDialogComponent, {
+      width: '70%',
+      disableClose: true,
+      data: {
+        title: 'Edit Class',
+        body: this.classes[index],
+        editable: true,
+        success: 'EDIT',
+        cancel: 'CANCEL',
+      },
+    });
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result == 'cancel')
+        this._snackbar.open('Discarded...', 'OK', {
+          horizontalPosition: 'right',
+          duration: 2500,
+        });
+      else {
+        this.classesService.editClass(result).subscribe(
+          (data) => {
+            this.ngOnInit();
+            this._snackbar.open('Creating class' + result.name, 'OK', {
+              horizontalPosition: 'right',
+              duration: 2500,
+              panelClass: ['mat-accent', 'mat-warn'],
+            });
+          },
+          (err) => {
+            this._snackbar.open('Editing class failled', 'OK', {
+              horizontalPosition: 'right',
+              duration: 2500,
+            });
+            console.log(err);
+          }
+        );
+      }
+    });
+  }
+  // deleteClass(index: number) {
+  //   this._snackbar.open(
+  //     'Can not delete ' + ELEMENT_DATA[index].name + ' at a moment',
+  //     'OK',
+  //     {
+  //       duration: 3000,
+  //       horizontalPosition: 'right',
+  //     }
+  //   );
+  // }
 }
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-];
