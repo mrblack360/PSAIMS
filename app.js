@@ -38,6 +38,9 @@ let authController = require("./controller/auth");
 let studentController = require("./controller/student");
 // class controller
 let classController = require("./controller/class-controller");
+// subject controller
+let subjectController = require("./controller/subject-controller");
+
 //Routes
 //login route
 // Default Landing page
@@ -233,7 +236,14 @@ app.get("/classes", classController.getAllClasses);
 app.get("/class/:id", classController.getOneClass);
 app.post("/class", classController.addClass);
 app.put("/class/:id", classController.updateClass);
-app.delete("class/:id");
+app.delete("/class/:id", classController.deleteClass);
+
+// Subjects Routes
+app.get("/subjects", subjectController.getAllSubjects);
+app.get("/subject/:id", subjectController.getOneSubject);
+app.post("/subject", subjectController.addSubject);
+app.put("/subject/:id", subjectController.updateSubject);
+app.delete("/subject/:id", subjectController.deleteSubject);
 
 app.listen(3000, () => {
   console.log("PSAIMS Running...");
