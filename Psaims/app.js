@@ -252,7 +252,7 @@ app.get("/assessments", assessmentController.getAllAssessments);
 // app.get("/assessment/:id", assessmentController.getOneAssessment);
 app.post("/assessment", assessmentController.addAssessment);
 app.put("/assessment/:id", assessmentController.updateAssessment);
-app.delete("/subject/:id", assessmentController.deleteAssessment);
+app.delete("/assessment/:id", assessmentController.deleteAssessment);
 
 app.listen(3000, () => {
   console.log("PSAIMS Running...");
