@@ -1,6 +1,6 @@
 var dbConnection = require("../config/mysql");
 
-//get a Class
+//get a Subject
 exports.getOneSubject = (req, res) => {
   const { id } = req.params;
   try {
@@ -19,7 +19,7 @@ exports.getOneSubject = (req, res) => {
   }
 };
 
-// get all Classs
+// get all Subjects
 exports.getAllSubjects = (req, res) => {
   try {
     dbConnection.query(
@@ -34,7 +34,7 @@ exports.getAllSubjects = (req, res) => {
   }
 };
 
-//add Class
+//add Subject
 exports.addSubject = (req, res) => {
   const { name, subjectTeacher, _class } = req.body;
   try {
@@ -53,7 +53,7 @@ exports.addSubject = (req, res) => {
   }
 };
 
-//delete Class
+//delete Subject
 exports.deleteSubject = (req, res) => {
   const { id } = req.params.id;
   try {
