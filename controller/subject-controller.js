@@ -5,7 +5,7 @@ exports.getOneSubject = (req, res) => {
   const { id } = req.params;
   try {
     dbConnection.query(
-      "SELECT subject.id as subjectId, subject.name as subjectName, subjectTeacher, userName, firstName, middleName, lastName, subject.class, class.id as classId, class.name as className FROM class, subject LEFT JOIN teacher ON subjectTeacher=userName WHERE class=class.id AND id=?",
+      "SELECT subject.id, subject.name, subjectTeacher, userName, firstName, middleName, lastName, class, class.id, class.name FROM class, subject LEFT JOIN teacher ON subjectTeacher=userName WHERE class=class.id AND id=?",
       [id],
       (err, results, fields) => {
         if (err) res.status(502).send({ message: "Service Unavailable" });
@@ -23,7 +23,7 @@ exports.getOneSubject = (req, res) => {
 exports.getAllSubjects = (req, res) => {
   try {
     dbConnection.query(
-      "SELECT subject.id as subjectId, subject.name as subjectName, subjectTeacher, userName, firstName, middleName, lastName, subject.class, class.id as classId, class.name as className FROM class, subject LEFT JOIN teacher ON subjectTeacher=userName WHERE class=class.id",
+      "SELECT subject.id, subject.name, subjectTeacher, userName, firstName, middleName, lastName, class, class.id, class.name as className FROM class, subject LEFT JOIN teacher ON subjectTeacher=userName WHERE class=class.id",
       (err, results, fields) => {
         if (err) res.status(502).send({ message: "Service Unavailable" });
         if (results) res.json(results);
