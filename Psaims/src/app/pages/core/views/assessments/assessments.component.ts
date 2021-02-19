@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-assessments',
@@ -21,7 +22,9 @@ export class AssessmentsComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
 
-  constructor(private _snackbar: MatSnackBar) {}
+  constructor(public title: Title, private _snackbar: MatSnackBar) {
+    this.title.setTitle('PSAIMS - Assessments');
+  }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }

@@ -1,0 +1,52 @@
+<mat-card>
+  <mat-card-title> {{ data.title }} </mat-card-title>
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <mat-label>Assessment Name</mat-label>
+        <input
+          matInput
+          placeholder="Test One"
+          [(ngModel)]="assessment.name"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Assessment Type</mat-label>
+        <input
+          matInput
+          placeholder="Test"
+          [(ngModel)]="assessment.type"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Subject</mat-label>
+        <input
+          matInput
+          placeholder="History"
+          [(ngModel)]="assessment.subjectName"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="warn" (click)="onCancelClick()">
+      {{ data.cancel }}
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="false"
+      [mat-dialog-close]="assessment"
+    >
+      {{ data.success }}
+    </button>
+  </mat-card-actions>
+</mat-card>

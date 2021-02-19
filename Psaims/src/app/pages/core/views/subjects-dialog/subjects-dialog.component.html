@@ -1,0 +1,52 @@
+<mat-card>
+  <mat-card-title> {{ data.title }} </mat-card-title>
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <mat-label>Subject Name</mat-label>
+        <input
+          matInput
+          placeholder="Geography"
+          [(ngModel)]="subject.name"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Class</mat-label>
+        <input
+          matInput
+          placeholder="II"
+          [(ngModel)]="subject.className"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Subject Teacher</mat-label>
+        <input
+          matInput
+          placeholder="Maswi"
+          [(ngModel)]="subject.subjectTeacher"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="warn" (click)="onCancelClick()">
+      {{ data.cancel }}
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="false"
+      [mat-dialog-close]="subject"
+    >
+      {{ data.success }}
+    </button>
+  </mat-card-actions>
+</mat-card>

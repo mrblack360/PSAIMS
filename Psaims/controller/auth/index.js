@@ -1,7 +1,6 @@
-var dbConnection = require('../../config/mysql')
+var dbConnection = require("../../config/mysql");
 
-
-exports.logout =  (req, res) => {
+exports.logout = (req, res) => {
   fs.writeFile(
     "src/app/shared/global-variable.ts",
     "export const user = {username: '', role: ''};",
@@ -10,32 +9,38 @@ exports.logout =  (req, res) => {
     }
   );
   res.json({ message: "Logged Out Successfully" });
-}
+};
 
-exports.login =  (req, res) => {
-  const {username, password} = req.body;
+exports.login = (req, res) => {
+  const { username, password } = req.body;
 
-  if(username && password){
-    try{
-      dbConnection.query('SELECT * FROM users WHERE username =? AND password =?',
-      [username,password],
-      (err, results, fields) => {
-        if(err) res.send({"message":"error"});
+  if (username && password) {
+    try {
+      dbConnection.query(
+        "SELECT * FROM users WHERE username =? AND password =?",
+        [username, password],
+        (err, results, fields) => {
+          if (err) res.send({ message: "error" });
 
-        if (results.length <= 0) {
-            res.redirect('/')
+          if (results.length <= 0) {
+            res.redirect("/");
+          } else {
+            res.json({
+              message:
+                "Successfully logged in as " +
+                results[0].username +
+                " with " +
+                results[0].role +
+                " privelleges",
+              result: results,
+            });
+          }
         }
-        else {
-
-            res.redirect('/login');
-        }
-
-    })
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  } else {
+    res.json({ message: "No field should be empty!" });
   }
-  catch(err){
-    console.log(err);
-  }
-  }else{
-    res.json({message:"No field should be empty!"})
-  }
-}
+};

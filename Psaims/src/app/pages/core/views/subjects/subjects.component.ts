@@ -1,7 +1,12 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Title } from '@angular/platform-browser';
+import { SubjectsService } from 'src/app/shared/services/subjects/subjects.service';
+import { SubjectsDialogComponent } from '../subjects-dialog/subjects-dialog.component';
 
 @Component({
   selector: 'app-subjects',
@@ -9,19 +14,41 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./subjects.component.css'],
 })
 export class SubjectsComponent implements OnInit, AfterViewInit {
+  subjects: any = [];
   displayedColumns: string[] = [
-    'position',
+    'sno',
     'name',
-    'weight',
-    'symbol',
+    'class',
+    'subject-teacher',
     'action',
   ];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  dataSource = new MatTableDataSource<any>(this.subjects);
 
+  @ViewChild(MatSort, { static: false }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
 
-  constructor(private _snackbar: MatSnackBar) {}
+  constructor(
+    public title: Title,
+    private _snackbar: MatSnackBar,
+    public subjectsService: SubjectsService,
+    public dialog: MatDialog
+  ) {
+    this.title.setTitle('PSAIMS - Subjects');
+    this.subjectsService.getSubjects().subscribe(
+      (data) => {
+        this.subjects = data;
+        this.dataSource = new MatTableDataSource<any>(this.subjects);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      },
+      (err) => {
+        this.subjects = [];
+      }
+    );
+  }
   ngAfterViewInit() {
+    this.dataSource = new MatTableDataSource<any>(this.subjects);
+    this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
 
@@ -29,34 +56,105 @@ export class SubjectsComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
   addSubject() {
-    this._snackbar.open('Can not add Subject at a moment', 'OK', {
-      duration: 3000,
-      horizontalPosition: 'right',
+    const dialogRef = this.dialog.open(SubjectsDialogComponent, {
+      width: '70%',
+      disableClose: true,
+      data: {
+        title: 'Add Subject',
+        body: '',
+        editable: true,
+        success: 'ADD',
+        cancel: 'CANCEL',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result == 'cancel')
+        this._snackbar.open('Discarded...', 'OK', {
+          horizontalPosition: 'right',
+          duration: 2500,
+        });
+      else {
+        this.subjectsService.addSubject(result).subscribe(
+          (data) => {
+            this.ngOnInit();
+            this._snackbar.open('Creating ' + result.name + ' subject ', 'OK', {
+              horizontalPosition: 'right',
+              duration: 2500,
+            });
+          },
+          (err) => {
+            console.log('Creating  failled');
+          }
+        );
+      }
     });
   }
   viewSubject(index: number) {
-    this._snackbar.open(
-      'Can not view ' + ELEMENT_DATA[index].name + ' at a moment',
-      'OK',
-      {
-        duration: 3000,
-        horizontalPosition: 'right',
+    const dialogRef = this.dialog.open(SubjectsDialogComponent, {
+      width: '70%',
+      disableClose: true,
+      data: {
+        title: 'View Subject',
+        body: '',
+        editable: false,
+        success: 'OK',
+        cancel: 'CANCEL',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result == 'cancel')
+        this._snackbar.open('Discarded...', 'OK', {
+          horizontalPosition: 'right',
+          duration: 2500,
+        });
+      else {
+        this._snackbar.open('Viewed ' + result.name + ' subject ', 'OK', {
+          horizontalPosition: 'right',
+          duration: 2500,
+        });
       }
-    );
+    });
   }
   editSubject(index: number) {
-    this._snackbar.open(
-      'Can not edit ' + ELEMENT_DATA[index].name + ' at a moment',
-      'OK',
-      {
-        duration: 3000,
-        horizontalPosition: 'right',
+    const dialogRef = this.dialog.open(SubjectsDialogComponent, {
+      width: '70%',
+      disableClose: true,
+      data: {
+        title: 'Edit Subject',
+        body: this.subjects[index],
+        editable: true,
+        success: 'EDIT',
+        cancel: 'CANCEL',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result == 'cancel')
+        this._snackbar.open('Discarded...', 'OK', {
+          horizontalPosition: 'right',
+          duration: 2500,
+        });
+      else {
+        this.subjectsService.addSubject(result).subscribe(
+          (data) => {
+            this.ngOnInit();
+            this._snackbar.open('Updating ' + result.name + ' subject ', 'OK', {
+              horizontalPosition: 'right',
+              duration: 2500,
+            });
+          },
+          (err) => {
+            console.log('Updating  failled');
+          }
+        );
       }
-    );
+    });
   }
   deleteSubject(index: number) {
     this._snackbar.open(
-      'Can not delete ' + ELEMENT_DATA[index].name + ' at a moment',
+      'Can not delete ' + this.subjects[index].name + ' at a moment',
       'OK',
       {
         duration: 3000,

@@ -20,29 +20,37 @@
       </button>
     </div>
   </div>
-  <table mat-table [dataSource]="dataSource">
+  <table mat-table [dataSource]="dataSource" matSort>
     <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef>No.</th>
-      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+    <ng-container matColumnDef="sno">
+      <th mat-header-cell *matHeaderCellDef>S/No</th>
+      <td mat-cell *matCellDef="let element; let index = index">
+        {{ index + 1 }}
+      </td>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Subject Name</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Subject Name</th>
       <td mat-cell *matCellDef="let element">{{ element.name }}</td>
     </ng-container>
 
     <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef>Class</th>
-      <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+    <ng-container matColumnDef="class">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Class</th>
+      <td mat-cell *matCellDef="let element">{{ element.className }}</td>
     </ng-container>
 
     <!-- Weight Column -->
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef>Subject Teacher</th>
-      <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+    <ng-container matColumnDef="subject-teacher">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Subject Teacher</th>
+      <td mat-cell *matCellDef="let element">
+        {{
+          element.subjectTeacher ? element.lastName + ", " : "Not yet assigned"
+        }}
+        {{ element.firstName ? element.firstName + " " : "" }}
+        {{ element.middleName ? element.middleName : "" }}
+      </td>
     </ng-container>
 
     <!-- Action Column -->
