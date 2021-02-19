@@ -2,7 +2,7 @@
 
 |Risk 1:| Inherent Schedule Flaws |
 |---|---|
-|Explanation: | Software development, given the intangible nature and uniqueness of software, is inherently difficult to estimate and schedule.|
+|Explanation: | Software development, given the intangible nature and uniqueness of the software, it's inherently difficult to estimate and schedule.|
 |Solution: | Get the team more involved in planning and estimating. Get early feedback and address slips directly with stakeholders.|
 
 |Risk 2: |Requirements Inflation|
@@ -12,7 +12,7 @@
 
 |Risk 3: |Specification Breakdown|
 |---|---|
-|Explanation: |When coding and integration begin it becomes apparent that the specification is incomplete or contains conflicting requirements.|
+|Explanation: |When coding and integration begins it becomes apparent that the specification is incomplete or contains conflicting requirements.|
 |Solution: |Use a dedicated Product Manager to make critical trade off decisions.|
 
 |Risk 4: |Poor Productivity|
