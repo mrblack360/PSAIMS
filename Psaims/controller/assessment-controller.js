@@ -18,11 +18,11 @@ exports.getAllAssessments = (req, res) => {
 
 //add Assessment
 exports.addAssessment = (req, res) => {
-  const { name, subject, type } = req.body;
+  const { name, subjectName, type } = req.body;
   try {
     dbConnection.query(
       "INSERT INTO assessment (name, subject, type,  lastModified) VALUES (?, ?,?, ?)",
-      [name, subject, type, moment().toISOString()],
+      [name, subjectName, type, moment().toISOString()],
       (err, results, fields) => {
         if (err) res.status(417).send({ message: "Failed to add Assessment" });
 
@@ -37,14 +37,20 @@ exports.addAssessment = (req, res) => {
 
 //delete Assessment
 exports.deleteAssessment = (req, res) => {
-  const { id } = req.params.id;
+  const { id } = req.params;
   try {
     dbConnection.query(
-      "DELETE FROM subject WHERE id=?",
+      "DELETE FROM assessment WHERE id=?",
       [id],
       (err, results, fields) => {
-        if (err) res.status(417).send({ message: "Failed to delete Subject" });
-        if (results) res.status(200).send({ message: "Successfully Deleted" });
+        if (err)
+          res
+            .status(417)
+            .send({ message: "Failed to delete Assessment", body: err });
+        if (results)
+          res
+            .status(200)
+            .send({ message: "Successfully Deleted", body: results });
       }
     );
   } catch (err) {
@@ -53,13 +59,14 @@ exports.deleteAssessment = (req, res) => {
 };
 
 exports.updateAssessment = (req, res) => {
-  const { name, subject, type } = req.body;
+  const { name, subjectName, type } = req.body;
   const { id } = req.params;
 
   try {
     dbConnection.query(
-      "UPDATE assessment SET name=?, subject=?, type=? WHERE id=" + id,
-      [name, subject, type],
+      "UPDATE assessment SET name=?, subject=?, type=?, lastModified=? WHERE id=" +
+        id,
+      [name, subjectName, type, moment().toISOString()],
       (err, results, fields) => {
         if (err)
           res.status(417).send({ message: "Failed to edit Assessment" + err });
