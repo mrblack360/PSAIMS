@@ -1,0 +1,92 @@
+<div class="top-tools">
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="false"
+    [mat-dialog-close]="assessment"
+  >
+    <mat-icon aria-hidden="false">reply</mat-icon>
+    Back to Assessment
+  </button>
+  <div>
+    Assessment Name:
+    <mat-form-field floatLabel="never">
+      <input
+        matInput
+        placeholder="Test One"
+        [(ngModel)]="assessment.name"
+        [ngModelOptions]="{ standalone: true }"
+        [disabled]="true"
+      />
+    </mat-form-field>
+    Assessment Type:
+    <mat-form-field floatLabel="never">
+      <input
+        matInput
+        placeholder="Test"
+        [(ngModel)]="assessment.typeName"
+        [ngModelOptions]="{ standalone: true }"
+        [disabled]="true"
+      />
+    </mat-form-field>
+    Subject:
+    <mat-form-field floatLabel="never">
+      <input
+        matInput
+        placeholder="History"
+        [(ngModel)]="assessment.subjectName"
+        [ngModelOptions]="{ standalone: true }"
+        [disabled]="true"
+      />
+    </mat-form-field>
+  </div>
+</div>
+<div>
+  <table mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="sno">
+      <th mat-header-cell *matHeaderCellDef>S/No.</th>
+      <td mat-cell *matCellDef="let element; let index = index">
+        {{ index + 1 }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="first-name">
+      <th mat-header-cell *matHeaderCellDef>First Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="middle-name">
+      <th mat-header-cell *matHeaderCellDef>Middle Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.middleName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="last-name">
+      <th mat-header-cell *matHeaderCellDef>Last Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+    </ng-container>
+
+    <!-- Marks Column -->
+    <ng-container matColumnDef="marks">
+      <th mat-header-cell *matHeaderCellDef>Marks</th>
+      <td mat-cell *matCellDef="let element; let index = index">
+        <mat-form-field floatLabel="never">
+          <input
+            matInput
+            placeholder="0"
+            [(ngModel)]="marks[index].marks"
+            [ngModelOptions]="{ standalone: true }"
+            (change)="updateAssessmentMarks(index)"
+          />
+        </mat-form-field>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 15]"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>
