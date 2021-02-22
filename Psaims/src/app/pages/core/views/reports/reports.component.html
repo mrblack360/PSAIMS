@@ -4,7 +4,6 @@
     <mat-card
       *ngFor="let report of reports[0]; let index = index"
       [class]="report.style"
-      (click)="viewReport(1, index)"
     >
       <div>
         <img [src]="report.icon" />
