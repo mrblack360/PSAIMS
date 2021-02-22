@@ -21,6 +21,7 @@ export class AssessmentsComponent implements OnInit, AfterViewInit {
     'name',
     'type',
     'subject',
+    'class',
     'date_created',
     'last_modified',
     'action',
