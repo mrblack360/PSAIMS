@@ -114,12 +114,15 @@ export class ReportsComponent implements OnInit {
   }
   populateAssessmentTableData(index: number) {
     this.body[0] = [
-      'Student ID',
-      'Fist Name',
-      'Middle Name',
-      'Last Name',
-      'Marks (%)',
-      'Grade',
+      {
+        text: 'Student ID',
+        bold: true,
+      },
+      { text: 'Fist Name', bold: true },
+      { text: 'Middle Name', bold: true },
+      { text: 'Last Name', bold: true },
+      { text: 'Marks (%)', bold: true },
+      { text: 'Grade', bold: true },
     ];
     this.assessmentMarksService.getAssessmentMarks(index).subscribe(
       (data) => {
@@ -169,6 +172,7 @@ export class ReportsComponent implements OnInit {
         {
           table: {
             headerRows: 1,
+            widths: ['auto', '*', '*', '*', 'auto', 'auto'],
             width: '1000',
             body: this.body,
           },
