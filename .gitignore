@@ -2,6 +2,7 @@
 
 # Personal Configurations
 /nodejs/database/conf.js
+config/mysql.js
 
 # compiled output
 /dist

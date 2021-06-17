@@ -263,6 +263,6 @@ app.get("/assessmentMarks/:id", assesmentMarksController.getAssessmentMarks);
 app.put("/assessmentMark", assesmentMarksController.updateAssessmentMarks);
 // app.delete("/assessment/:id", assessmentController.deleteAssessment);
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log("PSAIMS Running...");
 });
