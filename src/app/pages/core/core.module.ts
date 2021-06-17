@@ -30,6 +30,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { TeacherViewDialogComponent } from './views/teacher-view-dialog/teacher-view-dialog.component';
 import { ClassesDialogComponent } from './views/classes-dialog/classes-dialog.component';
 import { SubjectsDialogComponent } from './views/subjects-dialog/subjects-dialog.component';
+import { AssessmentDialogComponent } from './views/assessment-dialog/assessment-dialog.component';
+import { AssessmentMarksComponent } from './views/assessment-marks/assessment-marks.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { SubjectsDialogComponent } from './views/subjects-dialog/subjects-dialog
     TeacherViewDialogComponent,
     ClassesDialogComponent,
     SubjectsDialogComponent,
+    AssessmentDialogComponent,
+    AssessmentMarksComponent,
   ],
   imports: [
     CommonModule,

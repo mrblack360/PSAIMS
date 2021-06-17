@@ -73,6 +73,17 @@
           matInput
           placeholder="2021"
           [(ngModel)]="student.year"
+          [(ngModel)]="student.class"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!data.editable"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Year</mat-label>
+        <input
+          matInput
+          placeholder="2021"
+          [(ngModel)]="student.year"
           [ngModelOptions]="{ standalone: true }"
           [disabled]="!data.editable"
         />
