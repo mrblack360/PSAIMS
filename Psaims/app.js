@@ -42,6 +42,8 @@ let classController = require("./controller/class-controller");
 let subjectController = require("./controller/subject-controller");
 // Assessment controller
 let assessmentController = require("./controller/assessment-controller");
+// Assessment-mark controller
+let assesmentMarksController = require("./controller/assessment-marks-controller");
 
 //Routes
 //login route
@@ -116,6 +118,29 @@ app.get("/teachers", (req, res) => {
     console.log(err);
   }
 });
+
+// Students api/routes
+app.post("/student", studentController.addStudent);
+app.get("/students", studentController.getAllStudents);
+app.get("/student/:id", studentController.getOneStudent);
+app.delete("/student/:id", studentController.deleteStudent);
+app.put("/student/:id", studentController.updateStudent);
+
+// Teacher
+app.get("/teachers", (req, res) => {
+  try {
+    dbConnection.query(
+      "SELECT userName, firstName, middleName, lastName, avatar, gender, subject, subject.id, subject.name, class, class.id, class.name as className, year FROM teacher, subject, class WHERE teacher.subject=subject.id AND subject.class=class.id",
+      (err, results, fields) => {
+        if (err) res.status(502).send({ message: "Service Unavailable" });
+        if (results) res.json(results);
+      }
+    );
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 app.get("/teacher/:username", (req, res) => {
   try {
     dbConnection.query(
@@ -254,6 +279,13 @@ app.post("/assessment", assessmentController.addAssessment);
 app.put("/assessment/:id", assessmentController.updateAssessment);
 app.delete("/assessment/:id", assessmentController.deleteAssessment);
 
-app.listen(3000, () => {
+// Assessment Marks Routes
+app.get("/assessmentMarks/:id", assesmentMarksController.getAssessmentMarks);
+// app.get("/assessment/:id", assessmentController.getOneAssessment);
+// app.post("/assessment", assessmentController.addAssessment);
+app.put("/assessmentMark", assesmentMarksController.updateAssessmentMarks);
+// app.delete("/assessment/:id", assessmentController.deleteAssessment);
+
+app.listen(process.env.PORT || 3000, () => {
   console.log("PSAIMS Running...");
 });

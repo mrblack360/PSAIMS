@@ -1,0 +1,14 @@
+.top-tools {
+  display: flex;
+  padding: 3px;
+  justify-content: space-between;
+}
+mat-form-field {
+  width: 120px;
+}
+table {
+  width: 100%;
+}
+.mat-column-marks {
+  width: 120px;
+}
