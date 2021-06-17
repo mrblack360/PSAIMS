@@ -4,6 +4,7 @@
 [![GitHub contributors](https://img.shields.io/badge/contributors-7-green.svg?style=flat)](https://github.com/mrblack360/PSAIMS/graphs/contributors)
 ![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-green)
 ![Maintainability](https://img.shields.io/badge/maintainability-B-yellow)
+![Netlify Status](https://api.netlify.com/api/v1/badges/1326eb6f-0572-4515-925a-90a1a07688b3/deploy-status)
 
 # PSAIMS
 
