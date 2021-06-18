@@ -1,0 +1,14 @@
+{
+    "/api": {
+      "target": "https://psaims.herokuapp.com/",
+      "secure": "false",
+      "auth": "",
+      "changeOrigin": "true"
+    },
+    "/": {
+      "target": "https://psaims.herokuapp.com/",
+      "secure": "false",
+      "auth": "",
+      "changeOrigin": "true"
+    }
+  }
