@@ -30,12 +30,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "Psaims/src/_redirects",
-              {
-                "glob": "_redirects",
-                "input": "src",
-                "output": "/"
-              }
+              "src/_redirects"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
