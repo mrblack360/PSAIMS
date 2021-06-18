@@ -30,7 +30,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/_redirects",
+              "Psaims/src/_redirects",
               {
                 "glob": "_redirects",
                 "input": "src",
