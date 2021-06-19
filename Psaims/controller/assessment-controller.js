@@ -5,7 +5,7 @@ var moment = require("moment");
 exports.getAllAssessments = (req, res) => {
   try {
     dbConnection.query(
-      "SELECT assessment.id, assessment.name, subject, type, dateCreated, lastModified, assessmentType.id as typeId, assessmentType.name as typeName, subject.id as subjectId, subject.name as subjectName FROM assessment LEFT JOIN subject ON subject=subject.id LEFT JOIN assessmentType ON type=assessmentType.id",
+      "SELECT assessment.id, assessment.name, subject, class.name as class, type, dateCreated, lastModified, assessmentType.id as typeId, assessmentType.name as typeName, subject.id as subjectId, subject.name as subjectName FROM class, assessment LEFT JOIN subject ON subject=subject.id LEFT JOIN assessmentType ON type=assessmentType.id WHERE subject.class=class.id",
       (err, results, fields) => {
         if (err) res.status(502).send({ message: "Service Unavailable" });
         if (results) res.json(results);
