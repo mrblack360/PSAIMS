@@ -29,8 +29,7 @@
             "allowedCommonJsDependencies": ["chart.js"],
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/_redirects"
+              "src/assets"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
